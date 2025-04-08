@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For_uu Vanshika ❤️</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary-color: #ff6b81;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f54f86;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      padding: 40px 20px;
+    }
+
+    .landing-page, .gallery-page, .shayari-page, .thankyou-page {
+      flex-direction: column;
+    }
+
+    .title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+    }
+
+    .btn-romantic {
+      background: #fff;
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      padding: 12px 30px;
+      border-radius: 50px;
+      border: none;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin: 10px;
+    }
+
+    .btn-romantic:hover {
+      background: var(--primary-color);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .shayari-img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .shayari-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .gallery-images img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 15px;
+      margin: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .music-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+
+    .shayari-footer {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #fff;
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Landing Page -->
+  <section class="landing-page" id="landing">
+    <h1 class="title">For_uu Vanshika ❤️</h1>
+    <button class="btn-romantic" id="toGallery">Click here Vanshika</button>
+  </section>
+
+  <!-- Gallery Page -->
+  <section class="gallery-page" id="gallery">
+    <h2 class="title">Beautiful Vanshika 💖</h2>
+    <div class="gallery-images d-flex flex-wrap justify-content-center">
+      <img src="images/v1.jpg" alt="Pic 1"/>
+      <img src="images/v3.jpg" alt="Pic 3"/>
+      <img src="images/v4.jpg" alt="Pic 4"/>
+      <img src="images/v6.jpg" alt="Pic 6"/>
+    </div>
+    <button class="btn-romantic" id="toShayari">Click to for something special</button>
+  </section>
+
+  <!-- Shayari Page -->
+  <section class="shayari-page" id="shayari">
+    <img src="images/Van1.jpg" alt="Shayari Pic" class="shayari-img" id="shayariImage">
+    <div class="shayari-text" id="shayariText">
+      Shayari will appear here...
+    </div>
+    <div>
+      <button class="btn-romantic" id="prevShayari">Previous</button>
+      <button class="btn-romantic" id="nextShayari">Next</button>
+    </div>
+    <footer class="shayari-footer">
+      Hope you like it 💖
+    </footer>
+  </section>
+
+  <!-- Thank You Page -->
+  <section class="thankyou-page" id="thankyou">
+    <h2 class="title">Thank You ❤️</h2>
+    <div class="shayari-text">
+      Thanks for watching, Vanshika.<br/>
+      You're truly special 💕
+    </div>
+  </section>
+
+  <!-- Music Control -->
+  <div class="music-control" id="musicControl">
+    <i class="fas fa-music"></i>
+  </div>
+  <audio id="bgMusic" loop>
+    <source src="images/ReelAudio-29326.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Scripts -->
+  <script>
+    const sections = {
+      landing: document.getElementById('landing'),
+      gallery: document.getElementById('gallery'),
+      shayari: document.getElementById('shayari'),
+      thankyou: document.getElementById('thankyou')
+    };
+
+    const showSection = (id) => {
+      Object.values(sections).forEach(sec => sec.style.display = 'none');
+      sections[id].style.display = 'flex';
+    };
+
+    document.getElementById('toGallery').onclick = () => showSection('gallery');
+    document.getElementById('toShayari').onclick = () => {
+      showSection('shayari');
+      showShayari(0);
+      playMusic();
+    };
+
+    const bgMusic = document.getElementById('bgMusic');
+    const musicControl = document.getElementById('musicControl');
+    let musicPlaying = false;
+
+    const playMusic = () => {
+      const playPromise = bgMusic.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          musicPlaying = true;
+          musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+        });
+      }
+    };
+
+    musicControl.onclick = () => {
+      if (musicPlaying) {
+        bgMusic.pause();
+        musicControl.innerHTML = '<i class="fas fa-music"></i>';
+      } else {
+        bgMusic.play();
+        musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+      }
+      musicPlaying = !musicPlaying;
+    };
+
+    const shayaris = [
+      {
+        img: 'images/van1.jpg',
+        text: 'अपनी निगाहों से न देख ख़ुदको, हीरा भी तुझे पत्थर लगेगा; सब कहते होंगे चाँद का टुकड़ा है तू.. मेरी नज़र से देख चाँद भी तेरा\u00a0टुकड़ा\u00a0लगेगा ❤️'
+      },
+      {
+        img: 'images/van2.jpg',
+        text: 'पानी भी जो देखे तुझे तो प्यासा हो जाए और आग तुम्हें देखे तो खुद से\u00a0ही\u00a0जलन\u00a0हो\u00a0जाए 🤌'
+      },
+      {
+        img: 'images/van3.jpg',
+        text: 'युं व्यक्तितव तुम्हारा मनमोहक प्रिये। यदि तुम बानी कोतवाल तो हम स्वतः रूप से आत्मसमर्पण\u00a0हो\u00a0🙇\u200d♂✨'
+      },
+      {
+        img: 'images/van4.jpg',
+        text: 'गुलाब सी हो. गुलाब लगती हो हल्का सा भी मुस्कुरादो लाजवाब\u00a0लगती\u00a0हो 😍'
+      },
+      {
+        img: 'images/bg.jpg',
+        text: 'गुलाब सी हो. गुलाब लगती हो हल्का सा भी मुस्कुरादो लाजवाब लगती हो ❤️\u200d🔥'
+      },
+      {
+        img: 'images/van5.jpg',
+        text: 'हम तो फ़िदा हो गए आपकी एक झलक देखकर ना जाने आइने पर रोज़ क्या\u00a0गुजरती\u00a0होगी 🌙'
+      }
+    ];
+
+    let currentShayari = 0;
+
+    const shayariImage = document.getElementById('shayariImage');
+    const shayariText = document.getElementById('shayariText');
+    const prevShayari = document.getElementById('prevShayari');
+    const nextShayari = document.getElementById('nextShayari');
+
+    const showShayari = (index) => {
+      currentShayari = index;
+      const data = shayaris[currentShayari];
+      shayariImage.src = data.img;
+      shayariText.textContent = data.text;
+
+      prevShayari.style.display = currentShayari === 0 ? 'none' : 'inline-block';
+      nextShayari.style.display = currentShayari === shayaris.length - 1 ? 'inline-block' : 'inline-block';
+    };
+
+    prevShayari.onclick = () => {
+      if (currentShayari > 0) showShayari(currentShayari - 1);
+    };
+
+    nextShayari.onclick = () => {
+      if (currentShayari < shayaris.length - 1) {
+        showShayari(currentShayari + 1);
+      } else {
+        showSection('thankyou');
+      }
+    };
+
+    showSection('landing');
+  </script>
+</body>
+</html>
